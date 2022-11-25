@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 
 public class ExceptionsDemo {
 
-    public static void show(){
+    public static void show() throws IOException {
         //sayHello(null);
 
 //        // Catching Exception
@@ -57,14 +57,24 @@ public class ExceptionsDemo {
 //            System.out.println("");
 //        }
 
-        //Throw Exception
+        // Throw Exception
+//        var account = new Account();
+//        try {
+//            account.deposit(-1);
+//        } catch (IOException e) {
+//            System.out.println("Looging");
+//            throw e;
+//        }
+//
+
+        // Custom Exception
         var account = new Account();
         try {
-            account.deposit(-1);
-        } catch (IOException e) {
-            e.printStackTrace();
+            account.withdraw(10);
+        } catch (AccountException e) {
+            var cause = e.getCause();
+            System.out.println(cause);
         }
-
     }
 
 }
